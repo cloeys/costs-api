@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
   post 'auth/login', to: 'authentication#authenticate'
   post 'signup', to: 'users#create'
+
+  match '*path', via: [:options], to:  lambda {|_| [204, {'Content-Type' => 'text/plain'}, []]}
 end

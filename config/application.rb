@@ -30,11 +30,15 @@ module CostsApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.action_dispatch.default_headers = {
-      'Access-Control-Allow-Origin' => '*',
-      'Access-Control-Allow-Methods' => %w[GET POST PUT DELETE OPTIONS].join(','),
-      'Access-Control-Request-Method' => '*',
-      'Access-Control-Allow-Headers' => 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-    }
+    config.middleware.insert_before 0, 'Rack::Cors', logger: (-> { Rails.logger }) do
+      allow do
+        origins 'localhost:3000'
+    
+        resource '*',
+                 headers: :any,
+                 methods: %i[get post delete put patch options head],
+                 max_age: 0
+      end
+    end
   end
 end

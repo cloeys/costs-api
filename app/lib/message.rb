@@ -30,4 +30,16 @@ class Message
   def self.expired_token
     'Sorry, your token has expired. Please login to continue.'
   end
+
+  def self.password_confirmation_missing
+    'Missing password confirmation'
+  end
+
+  def self.password_confirmation_mismatch
+    'The password and password confirmation did not match'
+  end
+
+  def self.password_updated
+    'Password successfully updated'
+  end
 end

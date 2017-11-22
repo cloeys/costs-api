@@ -1,4 +1,5 @@
 module V1
+  # controls all requests for getting costs of a user
   class CostsController < ApplicationController
     before_action :set_cost, only: %i[show update destroy]
 

@@ -1,0 +1,8 @@
+Metrics/LineLength:
+  Enabled: false
+Layout/EndOfLine:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Style/Documentation:
+  Enabled: false

@@ -26,7 +26,7 @@ RSpec.describe 'Costs API', type: :request do
 
   # Test suite for GET /costs/:id
   describe 'GET /costs/:id' do
-    before { get "/costs/#{cost_id}", params: {}, headers: headers}
+    before { get "/costs/#{cost_id}", params: {}, headers: headers }
 
     context 'when the record exists' do
       it 'returns the cost' do

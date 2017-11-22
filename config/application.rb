@@ -15,6 +15,7 @@ require "action_cable/engine"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+Dotenv::Railtie.load if Module.const_defined?('Dotenv')
 
 module CostsApi
   class Application < Rails::Application

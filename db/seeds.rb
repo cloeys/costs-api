@@ -8,6 +8,8 @@
 
 require 'faker'
 
+User.create(name: 'admin', lastname: 'admin', email: 'christophe.loeys@gmail.com', dateofbirth: Date.new(1992, 2, 16), password: 'admin')
+
 50.times do
-  cost = Cost.create(title: Faker::Lorem.word, description: Faker::Lorem.sentence, code: Faker::Internet.domain_suffix, amount: 15.0, paid: false, user_id: User.first.id)
+  Cost.create(title: Faker::Lorem.word, description: Faker::Lorem.sentence, code: Faker::Internet.domain_suffix, amount: 15.0, paid: false, user_id: User.first.id)
 end

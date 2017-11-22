@@ -1,5 +1,12 @@
 language: ruby
 rvm:
  - 2.3.3
- - jruby
+ - jruby-9.1.9.0
  - rbx-3
+ services:
+ - postgresql
+ before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  test:
+    adapter: postgresql
+    database: travis_ci_test

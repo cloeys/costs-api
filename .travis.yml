@@ -3,10 +3,9 @@ rvm:
  - 2.3.3
  - jruby-9.1.9.0
  - rbx-3
- services:
+services:
  - postgresql
- before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-  test:
-    adapter: postgresql
-    database: travis_ci_test
+script: "bundle exec rake db:drop db:create db:migrate spec"
+test:
+  adapter: postgresql
+  database: travis_ci_test

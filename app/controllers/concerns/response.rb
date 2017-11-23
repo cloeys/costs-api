@@ -2,7 +2,7 @@ module Response
   def json_response(object, status = :ok, excluded = [])
     j_objects = JSON.parse(object.to_json)
 
-    if j_objects.kind_of?(Array)
+    if j_objects.is_a?(Array)
       j_objects.each do |obj|
         excluded.each { |param| obj.delete(param) }
       end

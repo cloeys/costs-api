@@ -24,9 +24,9 @@ class UsersController < ApplicationController
 
   def update_password
     return json_response({ message: Message.password_confirmation_missing }, :bad_request) unless params['password_confirmation']
-    return json_response({ message: Message.password_confirmation_mismatch}, :bad_request) if params['password'] != params['password_confirmation']
+    return json_response({ message: Message.password_confirmation_mismatch }, :bad_request) if params['password'] != params['password_confirmation']
     current_user.update(user_password_params)
-    json_response({ message: Message.password_updated })
+    json_response(message: Message.password_updated)
   end
 
   private

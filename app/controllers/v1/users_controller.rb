@@ -1,4 +1,5 @@
 # controls requests regarding to the user
+module V1
 class UsersController < ApplicationController
   skip_before_action :authorize_request, only: :create
 
@@ -53,4 +54,5 @@ class UsersController < ApplicationController
   def clean_user(object)
     json_response(object, :ok, %w[id password_digest updated_at])
   end
+end
 end
